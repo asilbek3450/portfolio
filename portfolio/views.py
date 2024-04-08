@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Project
+from .models import Project, Contact
 from .forms import ContactForm
 
 
@@ -8,14 +8,9 @@ def home_page(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            form.save()
-    else:
-        form = ContactForm()
-
+            Contact.objects.create(**form.cleaned_data)
+        else:
+            print(form.errors)
+    form = ContactForm()
     projects = Project.objects.all()
-    context = {
-        'projects': projects,
-        'form': form
-    }
-
-    return render(request, 'index.html', context)
+    return render(request, 'index.html', {'projects': projects, 'form': form})

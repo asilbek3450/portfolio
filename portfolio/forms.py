@@ -11,6 +11,7 @@ class ContactForm(ModelForm):
                 attrs={
                     'placeholder': 'Phone number must be entered in the format: +123456789. Up to 15 digits'
                 }
-            )
+            ),
+            'xabar': TextInput(attrs={'placeholder': 'Your message here...'}),
         }
 
