@@ -9,7 +9,7 @@ class Project(models.Model):
     url = models.URLField()
     github_url = models.URLField()
 
-    def str(self):
+    def __str__(self):
         return self.nomi
 
 
@@ -23,5 +23,5 @@ class Contact(models.Model):
         )])
     xabar = models.TextField(max_length=1000)
 
-    def str(self):
+    def __str__(self):
         return self.ism_familiya
