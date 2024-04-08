@@ -6,7 +6,7 @@ class Project(models.Model):
     nomi = models.CharField(max_length=150)
     malumot = models.TextField(max_length=555)
     rasm = models.ImageField(upload_to='project_images/')
-    url = models.URLField()
+    url = models.URLField(null=True, blank=True)
     github_url = models.URLField()
 
     def __str__(self):
